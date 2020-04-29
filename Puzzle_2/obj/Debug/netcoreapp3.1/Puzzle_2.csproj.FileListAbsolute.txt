@@ -1,0 +1,12 @@
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\bin\Debug\netcoreapp3.1\Puzzle_2.exe
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\bin\Debug\netcoreapp3.1\Puzzle_2.deps.json
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\bin\Debug\netcoreapp3.1\Puzzle_2.runtimeconfig.json
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\bin\Debug\netcoreapp3.1\Puzzle_2.runtimeconfig.dev.json
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\bin\Debug\netcoreapp3.1\Puzzle_2.dll
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\bin\Debug\netcoreapp3.1\Puzzle_2.pdb
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\obj\Debug\netcoreapp3.1\Puzzle_2.csproj.CoreCompileInputs.cache
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\obj\Debug\netcoreapp3.1\Puzzle_2.AssemblyInfoInputs.cache
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\obj\Debug\netcoreapp3.1\Puzzle_2.AssemblyInfo.cs
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\obj\Debug\netcoreapp3.1\Puzzle_2.dll
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\obj\Debug\netcoreapp3.1\Puzzle_2.pdb
+C:\Users\Lavanya\source\repos\VariousConcepts\Puzzle_2\obj\Debug\netcoreapp3.1\Puzzle_2.genruntimeconfig.cache

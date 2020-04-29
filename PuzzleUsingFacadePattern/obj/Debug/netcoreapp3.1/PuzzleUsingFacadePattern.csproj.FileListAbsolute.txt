@@ -1,0 +1,13 @@
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\bin\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.exe
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\bin\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.deps.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\bin\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.runtimeconfig.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\bin\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.runtimeconfig.dev.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\bin\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\bin\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.csprojAssemblyReference.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.csproj.CoreCompileInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.AssemblyInfoInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.AssemblyInfo.cs
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\PuzzleUsingFacadePattern\obj\Debug\netcoreapp3.1\PuzzleUsingFacadePattern.genruntimeconfig.cache
