@@ -1,0 +1,13 @@
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\bin\Debug\netcoreapp3.1\IteratorPattern.exe
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\bin\Debug\netcoreapp3.1\IteratorPattern.deps.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\bin\Debug\netcoreapp3.1\IteratorPattern.runtimeconfig.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\bin\Debug\netcoreapp3.1\IteratorPattern.runtimeconfig.dev.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\bin\Debug\netcoreapp3.1\IteratorPattern.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\bin\Debug\netcoreapp3.1\IteratorPattern.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.csprojAssemblyReference.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.csproj.CoreCompileInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.AssemblyInfoInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.AssemblyInfo.cs
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\IteratorPattern\obj\Debug\netcoreapp3.1\IteratorPattern.genruntimeconfig.cache
