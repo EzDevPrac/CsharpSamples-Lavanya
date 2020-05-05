@@ -1,0 +1,13 @@
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\bin\Debug\netcoreapp3.1\AbstractFactoryPattern.exe
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\bin\Debug\netcoreapp3.1\AbstractFactoryPattern.deps.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\bin\Debug\netcoreapp3.1\AbstractFactoryPattern.runtimeconfig.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\bin\Debug\netcoreapp3.1\AbstractFactoryPattern.runtimeconfig.dev.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\bin\Debug\netcoreapp3.1\AbstractFactoryPattern.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\bin\Debug\netcoreapp3.1\AbstractFactoryPattern.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.csprojAssemblyReference.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.csproj.CoreCompileInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.AssemblyInfoInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.AssemblyInfo.cs
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\AbstractFactoryPattern\obj\Debug\netcoreapp3.1\AbstractFactoryPattern.genruntimeconfig.cache
