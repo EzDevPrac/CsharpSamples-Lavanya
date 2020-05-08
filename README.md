@@ -1,6 +1,828 @@
 [![Build Status](https://dev.azure.com/lavanyakgf8840615/CsharpSample/_apis/build/status/EzDevPrac.CsharpSamples-Lavanya%20(1)?branchName=master)](https://dev.azure.com/lavanyakgf8840615/CsharpSample/_build/latest?definitionId=2&branchName=master)
 # Design Pattern
 
+## Proxy Design Pattern
+
+1.Proxy Design Pattern act on behalf of othe object to control the access to it.
+
+2.Proxy Design Pattern, a class represents the functionality of another class.
+
+There are three types of proxies. They are as follows.
+ 
+ 1.`Virtual Proxy`: A virtual proxy is a place holder for “expensive to create” objects. The real object is only created when a client first requests or accesses the object.
+ 
+ 2.`Remote Proxy`: A remote proxy provides local representation for an object that resides in a different address space.
+ 
+ 3.`Protection Proxy`: A protection proxy control access to a sensitive master object. The surrogate object checks that the caller has the access permissions required before forwarding the request.
+ 
+ 
+ **UML Diagram of Proxy Pattern**
+ 
+ ![](http://gyanendushekhar.com/wp-content/uploads/2016/08/Proxy-design-pattern-in-C-UML-diagram.png)
+ 
+ `Subject` This is an interface that defines members that are going to be implemented by the RealSubject and Proxy class so that the Proxy can be used anywhere the RealSubject is expected.
+
+ `RealSubject` This is a class that we want to use more efficiently by using the proxy class.
+
+ `Proxy` This is a class that holds a reference of the RealSubject class and can access RealSubjecr class members as required.
+ 
+ **Example Code**
+ 
+ **Creating Subject**
+ 
+ ```csharp
+ using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ProxyPattern
+{
+   public interface IChrome
+    {
+        string DisplayResult();
+    }
+}
+```
+**Creating Real-Object**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ProxyPattern
+{
+   public class RealServer : IChrome 
+    {
+        private string Filename { get; set; }
+
+        public RealServer(string filename)
+        {
+            Filename = filename;
+            LoadImageFromDisk();
+        }
+        public void LoadImageFromDisk()
+        {
+            Console.WriteLine("Loading  : " + Filename);
+        }
+        public string DisplayResult()
+        {
+            Console.WriteLine("Displaying  Result From Real Server : " + Filename);
+           return "Displaying  Result From Real Server : " + Filename;
+        }
+
+    }
+}
+```
+**Creating Proxy**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ProxyPattern
+{
+    public class ProxyServer 
+    {
+        private RealServer real = null;
+        List<string> search = new List<string>();
+        private bool result = false;
+        private string Url;
+
+        public void Search(string url)
+        {
+            Url = url;
+            result = SearchUrlInCache(url);
+            DisplayResult();
+
+        }
+        public bool SearchUrlInCache(string url)
+        {
+            bool count = false;
+            for(int i=0;i<search.Count;i++)
+            {
+                if(url.Equals(search[i]))
+                {
+                    count = true;
+                }
+            }
+            return count;
+        }
+        public void DisplayResult()
+        {
+            if(result == false)
+            {
+                real = new RealServer(Url);
+
+                search.Add(Url);
+                real.DisplayResult();
+            }
+            else
+            {
+                Console.WriteLine("Displaying Result From Cache  : " + Url);
+
+            }
+        }
+
+    }
+}
+```
+**Client Code**
+```csharp
+using System;
+
+namespace ProxyPattern
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            ProxyServer chrome = null;
+
+
+                  chrome = new ProxyServer();
+                  chrome.Search("Proxy Pattern");
+                  chrome.Search("Factory Pattern");
+                  chrome.Search("Proxy Pattern");
+             
+        
+
+                
+
+
+
+        }
+    }
+}
+```
+**Output**
+
+![alt text](https://raw.githubusercontent.com/Lavanyababu1234/Upload/master/Screenshot%20(55).png)
+ 
+ 
+ 
+ 
+
+## Prototype Design Pattern
+
+1.Prototype pattern falls under Creational Pattern Design Patterns.
+
+2.Prototype Design Pattern gives us a way to create new objects from the existing instance of the object. That means it clone the existing object with its data into a new object.
+
+3.In this pattern we can Clone Object in 2 ways that is:
+   
+ 1.`Shallow Copy`: it will create the new object from the existing object and then copying the value type fields of the current object to the new object. But in the case of reference type, it will only copy the reference, not the referred object itself. 
+    
+2.`Deep Copy`: it will create the new object from the existing object and then copying the fields of the current object to the newly created object.If the field is a reference type, then a new copy of the referred object is created.
+  
+**UML Diagram**
+
+![alt text](http://gyanendushekhar.com/wp-content/uploads/2016/08/Prototype-design-pattern-in-C-UML-Diagram.png)
+
+`IPrototype`: Interface that is used for creating objects.
+
+`ConcretePrototype1, ConcretePrototype2`: Implements IPrototype interface
+
+ `Client` : Client class will make clones of different objects.
+
+**Example Code**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PrototypePattern
+{
+    public class Employee
+    {
+        public string Name { get; set; }
+        public string Department { get; set; }
+        public Address EmpAddress { get; set; }
+        public Employee GetClone()
+        {
+            return (Employee)this.MemberwiseClone();
+        }
+
+    }
+    
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PrototypePattern
+{
+    public class Address
+    {
+        public string address { get; set; }
+        public static int PinCode;
+        public Address GetClone()
+        {
+            return (Address)this.MemberwiseClone();
+        }
+    }
+}
+```
+**Client code**
+
+```csharp
+using System;
+
+namespace PrototypePattern
+{
+  public  class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee emp1 = new Employee();
+            emp1.Name = "Lavanya";
+            emp1.Department = "IT";
+            emp1.EmpAddress = new Address() { address = "Kolar"};
+            Employee emp2 = emp1.GetClone();
+            emp2.Name = "Treena";
+            Console.WriteLine("Emplpyee 1: ");
+            Console.WriteLine("Name: " + emp1.Name + ", Address: " + emp1.EmpAddress.address + ", Dept: " + emp1.Department);
+            Console.WriteLine("Emplpyee 2: ");
+            Console.WriteLine("Name: " + emp2.Name + ", Address: " + emp2.EmpAddress.address + ", Dept: " + emp2.Department);
+            Console.ReadLine();
+        }
+    }
+}
+```
+**Output**
+
+![alt text](https://github.com/Lavanyababu1234/Upload/blob/master/Screenshot%20(51).png)
+
+
+
+## Abstract Factory Design Pattern 
+
+1.The Abstract Factory Design Pattern belongs to the creational design pattern category.
+
+2.The Abstract Factory is a super factory that creates other factories.
+
+**UML Diagram**
+
+![alt text](http://gyanendushekhar.com/wp-content/uploads/2016/07/Abstract-Factory-design-pattern-in-C-UML-diagram.png)
+
+
+`AbstractFactory` This is an interface which is used to create abstract product
+
+`ConcreteFactory` This is a class which implements the AbstractFactory interface to create concrete products.
+
+ `AbstractProduct` This is an interface which declares a type of product.
+
+ `ConcreteProduct` This is a class which implements the AbstractProduct interface to create a product.
+
+ `Client` This is a class which uses AbstractFactory and AbstractProduct interfaces to create a family of related objects.
+
+**Example Code**
+
+**Creating Abstract Product**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+     public interface IFood
+    {
+        string ProductDetails();
+    }
+}
+```
+**Creating Concrete Product**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+   public class KitKat : IFood
+    {
+        public string ProductDetails()
+        {
+            return "Name : KitKat ,Cost : Rs 10";
+        }
+    }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+    public class Snickers : IFood
+    {
+      public  string ProductDetails()
+        {
+            return "Name : Snickers , cost : Rs 20";
+        }
+
+    }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+   public class SwisChocolate :IFood
+    {
+        public string ProductDetails()
+        {
+            return "Name : Swis Chocolate , Cost : Rs 110";
+        }
+    }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+   public class VanillaDream : IFood
+    {
+        public string ProductDetails()
+        {
+            return "Name : Vanilla Dream, Cost :Rs 75";
+        }
+    }
+}
+```
+**Creating the Abstract Factory**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+     
+        public abstract class FoodFactory
+    {
+            public abstract IFood GetProduct(string FoodType);
+            public static FoodFactory CreateFoodFactory(string FactoryType)
+            {
+            if (FactoryType.Equals("Ice Cream"))
+                return new IceCreamFactory();
+            else
+                return new ChocolateFactory();
+            }
+        }
+    
+}
+```
+**Creating Concrete Factory**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+   public class IceCreamFactory : FoodFactory
+    {
+        public override IFood GetProduct(string FoodType)
+        {
+            if (FoodType.Equals("Vanilla Dream"))
+            {
+                return new VanillaDream();
+            }
+            else
+            {
+                return new SwisChocolate();
+            }
+
+        }
+    }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbstractFactoryPattern
+{
+    public class ChocolateFactory : FoodFactory
+    {
+        public override IFood GetProduct(string FoodType)
+        {
+            if (FoodType.Equals("KitKat"))
+            {
+                return new KitKat();
+            }
+            else
+            {
+                return new Snickers();
+            }
+
+        }
+    }
+}
+```
+**Client**
+
+```csharp
+using System;
+
+namespace AbstractFactoryPattern
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IFood food = null;
+            FoodFactory foodFactory = null;
+            string Details = null;
+            foodFactory = FoodFactory.CreateFoodFactory("Ice Cream");
+            Console.WriteLine("Food Factory type : " + foodFactory.GetType().Name);
+            Console.WriteLine();
+
+            food = foodFactory.GetProduct("Vanilla Dream");
+            Details = food.ProductDetails();
+            Console.WriteLine(Details);
+
+            Console.WriteLine("--------------------------------------------");
+
+            foodFactory = FoodFactory.CreateFoodFactory("Chocolate");
+            Console.WriteLine("Food Factory type : " + foodFactory.GetType().Name);
+            Console.WriteLine();
+
+            food = foodFactory.GetProduct("Snickers");
+            Details = food.ProductDetails();
+            Console.WriteLine(Details);
+
+        }
+    }
+}
+```
+**Output**
+
+![alt text](https://github.com/Lavanyababu1234/Upload/blob/master/Screenshot%20(49).png)
+
+
+## Iterator Design Pattern
+
+1.The Iterator Design Pattern falls under the category of Behavioral Design Pattern.Iterator Design Pattern allows sequential access of elements without exposing the inside logic.
+
+2.In this Pattern will traverse a container and access the elements of the container.
+
+3.The main use of the Iterator design pattern is to access the elements of a collection in a sequential manner.
+
+4.We use iterators quite frequently in our daily life. For example remote control of the TV. Any remote control that we use, just pick up the TV remote control and start pressing Up and Down or Forward and Back keys to iterate through the channels.
+
+**UML Diagram Of Iterator Pattern**
+
+![alt text](https://www.dofactory.com/images/diagrams/net/iterator.gif)
+
+**Example Code**
+**Create the collection item**
+ ```csharp
+ using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace IteratorPattern
+{
+       public class Elempoyee
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public Elempoyee(string name, int id)
+            {
+                Name = name;
+                ID = id;
+            }
+        }
+}
+```
+**Creating Iterator**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace IteratorPattern
+{
+      public class Iterator 
+        {
+            private ConcreteCollection collection;
+            private int current = 0;
+            private int step = 1;
+
+            // Constructor
+            public Iterator(ConcreteCollection collection)
+            {
+                this.collection = collection;
+            }
+
+            // Gets first item
+            public Elempoyee First()
+            {
+                current = 0;
+                return collection.GetEmployee(current);
+            }
+
+            // Gets next item
+            public Elempoyee Next()
+            {
+                current += step;
+                if (!IsCompleted)
+                {
+                    return collection.GetEmployee(current);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            // Check whether iteration is complete
+            public bool IsCompleted
+            {
+                get { return current >= collection.Count; }
+            }
+        }
+}
+```
+**Creating ConcreteCollection**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace IteratorPattern
+{
+       public class ConcreteCollection 
+        {
+            private List<Elempoyee> listEmployees = new List<Elempoyee>();
+
+            //Create Iterator
+            public Iterator CreateIterator()
+            {
+                return new Iterator(this);
+            }
+
+            // Gets item count
+            public int Count
+            {
+                get { return listEmployees.Count; }
+            }
+
+            //Add items to the collection
+            public void AddEmployee(Elempoyee employee)
+            {
+                listEmployees.Add(employee);
+            }
+
+            //Get item from collection
+            public Elempoyee GetEmployee(int IndexPosition)
+            {
+                return listEmployees[IndexPosition];
+            }
+        }
+}
+```
+**Client Code** 
+```csharp
+using System;
+
+namespace IteratorPattern
+{
+        public class Program
+        {
+            static void Main()
+            {
+                // Build a collection
+                ConcreteCollection collection = new ConcreteCollection();
+
+                collection.AddEmployee(new Elempoyee("Lavanya", 100));
+                collection.AddEmployee(new Elempoyee("Tereena", 101));
+                collection.AddEmployee(new Elempoyee("Raju", 102));
+                collection.AddEmployee(new Elempoyee("Karan", 103));
+                collection.AddEmployee(new Elempoyee("Shashank", 104));
+
+                // Create iterator
+                Iterator iterator = collection.CreateIterator();
+
+                //looping iterator      
+                Console.WriteLine("Iterating over collection:");
+
+                for (Elempoyee emp = iterator.First(); !iterator.IsCompleted; emp = iterator.Next())
+                {
+                    Console.WriteLine("ID:"+emp.ID + " Name:"+emp.Name);
+                }
+                Console.Read();
+            }
+        }
+}
+```
+**Output**
+
+![alt text](https://raw.githubusercontent.com/Lavanyababu1234/Upload/master/Screenshot%20(46).png)
+
+
+
+## Strategy Design Pattern
+
+1.Strategy Design Pattern falls under Behavioral Pattern.
+
+2.The Strategy Design Pattern attempts to solve the issue where you need to provide multiple solutions for the same problem so that one can be selected at runtime.
+
+3.The Strategy Design Pattern is used when we have multiple algorithms (solutions) for a specific task and the client decides the actual implementation to be used at runtime.
+
+**UML diagram for the Strategy Design Pattern**
+
+![alt text](http://gyanendushekhar.com/wp-content/uploads/2016/09/Strategy-Design-Pattern-in-C-UML-Diagram.png)
+
+The classes, interfaces, and objects in the above UML class diagram are as follows:
+
+`Strategy ` :The Strategy declares an interface that is going to be implemented by all supported algorithms.
+
+`ConcreteStrategy`:These are classes and they implement the algorithm defined by the Strategy interface.
+
+`Context `:This is a class which maintains a reference to a Strategy object, and then uses that reference to call the algorithm defined by a particular ConcreteStrategy 
+
+**Example Code**
+
+**Creating Strategy**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StrategyPattern
+{
+   public interface ITravelStrategy
+    {
+      string GotoAirport();
+        
+    }
+}
+```
+**Creating Concrete Strategy**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StrategyPattern
+{
+   public class AutoTravelStrategy : ITravelStrategy
+        {
+            public string GotoAirport()
+            {
+            Console.WriteLine("Traveler is going to Airport by Auto and will be charged Rs 600");
+
+            return "Traveler is going to Airport by Auto and will be charged Rs 600";
+            }
+        }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StrategyPattern
+{  
+    public class BusTravelStrategy : ITravelStrategy
+    {
+            public string GotoAirport()
+            {
+                Console.WriteLine("Traveler is going to Airport by bus and will be charged Rs 300");
+
+                  return "Traveler is going to Airport by bus and will be charged Rs 300";
+            }
+    }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StrategyPattern
+{
+        public class TaxiTravelStrategy : ITravelStrategy
+        {
+            public string GotoAirport()
+            {
+                Console.WriteLine("Traveler is going to Airport by Taxi and will be charged Rs 1000");
+
+                return "Traveler is going to Airport by Taxi and will be charged Rs 1000";
+            }
+        }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StrategyPattern
+{
+        public class TrainTravelStrategy : ITravelStrategy
+        {
+            public string GotoAirport()
+            {
+                Console.WriteLine("Traveler is going to Airport by Train and will be charged Rs 200");
+
+            return "Traveler is going to Airport by Train and will be charged Rs 200";
+            }
+        }
+}
+```
+**Creating context**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StrategyPattern
+{ 
+        public class TravelContext
+        {
+            private ITravelStrategy travelStrategy;
+
+            // The Client will set what TravelStrategy to use by 
+            // calling this method at runtime
+            public void SetTravelStrategy(ITravelStrategy strategy)
+            {
+                this.travelStrategy = strategy;
+            }
+
+            public void gotoAirport()
+            {
+                travelStrategy.GotoAirport();
+            }
+        }
+}
+
+```
+**Client Code**
+
+```csharp
+using System;
+
+namespace StrategyPattern
+{
+   public class Program
+    {
+        static void Main(string[] args)
+        {
+            TravelContext travel = new TravelContext();
+            Console.WriteLine("Please enter Travel Type : Auto or Bus or Train or Taxi");
+            string input = Console.ReadLine();
+            switch(input.ToLower())
+            {
+                case "bus": travel.SetTravelStrategy(new BusTravelStrategy());
+                    break;
+                case "train": travel.SetTravelStrategy(new TrainTravelStrategy());
+                    break;
+                case "taxi": travel.SetTravelStrategy(new TaxiTravelStrategy());
+                    break;
+                case "auto": travel.SetTravelStrategy(new AutoTravelStrategy());
+                    break;
+                default:
+                    break;
+            }
+            travel.gotoAirport();
+            Console.ReadLine();
+        }
+    }
+}
+```
+**Output**
+
+![alt text](https://raw.githubusercontent.com/Lavanyababu1234/Upload/master/Screenshot%20(53).png)
+
+
+
+
+
+
 ## Observer Design Pattern
 
 1.The Observer Design Pattern in which an object maintains a list of its dependents and notifies them automatically whenever any state changes by calling one of their methods.
