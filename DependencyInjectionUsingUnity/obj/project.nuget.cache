@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "E6TwDsT6Y4nj2rJRkG7SAk0FVVmQgEYUDK0qN+vYpnheCsbMCfpC0zsiVKrD9ahYpgHEfaTTnKlSFU1aVK/veg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lavanya\\Desktop\\github\\CsharpSamples-Lavanya-master\\DependencyInjectionUsingUnity\\DependencyInjectionUsingUnity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lavanya\\.nuget\\packages\\commonservicelocator.netcore\\1.3.1\\commonservicelocator.netcore.1.3.1.nupkg.sha512",
+    "C:\\Users\\Lavanya\\.nuget\\packages\\unity.netcore\\4.0.3\\unity.netcore.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
