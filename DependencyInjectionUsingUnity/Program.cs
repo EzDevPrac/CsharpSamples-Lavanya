@@ -8,18 +8,11 @@ namespace DependencyInjectionUsingUnity
         static void Main(string[] args)
         {
 
-            var container = new UnityContainer();
-            container.RegisterType<IInstitutionService, InstitutionService>();
-            container.RegisterType<ICourseService, CourseService>();
+            var container = new UnityContainer()
+                .RegisterType<ICar, BMW>();
 
-            InstitutionService institution = container.Resolve<InstitutionService>();
-          Console.WriteLine( institution.GetInstitutionByID(1).ToString());
-
-            CourseService course = container.Resolve<CourseService>();
-
-            Console.WriteLine(course.GetCourseByID(2));
-        
-
+            var driver1 = container.Resolve<Driver>();
+            driver1.RunCar();
         }
     }
 }
