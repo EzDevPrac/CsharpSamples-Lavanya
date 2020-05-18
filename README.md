@@ -1,6 +1,158 @@
 [![Build Status](https://dev.azure.com/lavanyakgf8840615/CsharpSample/_apis/build/status/EzDevPrac.CsharpSamples-Lavanya%20(1)?branchName=master)](https://dev.azure.com/lavanyakgf8840615/CsharpSample/_build/latest?definitionId=2&branchName=master)
 # Design Pattern
 
+## Dependency Injection
+
+1.Dependency Injection (DI) is a design pattern used to implement IoC.It allows the creation of dependent objects outside of a class and provides those objects to a class through different ways.
+
+2.Types of Dependency Injection are as fallows:
+
+  `Constructor Injection:` In the constructor injection, the injector supplies the service (dependency)     through the client class constructor.
+  `Property Injection:` In the property injection,the injector supplies the dependency through a public property of the client class.
+  `Method Injection:`In this type of injection, the client class implements an interface which declares the method(s) to supply the dependency and the injector uses this interface to supply the dependency to the client class.
+  
+ **Diagram of Dependency Pattern**
+ 
+ ![alt text](https://www.tutorialsteacher.com/Content/images/ioc/DI.png)
+ 
+ The Dependency Injection pattern involves 3 types of classes.
+ 
+ `Client Class:`The client class (dependent class) is a class which depends on the service class.
+ 
+ `Service Class:`The service class (dependency) is a class that provides service to the client class.
+ 
+ `Injector Class:`The injector class injects the service class object into the client class.
+ 
+ **Example Code**
+ 
+ **Creating Interface**
+ ```csharp
+ using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DependencyInjectionUsingUnity
+{
+    public interface ICar
+    {
+        int Run();
+    }
+}
+```
+**Creating Concrete class**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DependencyInjectionUsingUnity
+{
+    public class BMW : ICar
+    {
+        private int _miles = 0;
+
+        public int Run()
+        {
+            return ++_miles;
+        }
+    }
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DependencyInjectionUsingUnity
+{
+
+    public class Ford : ICar
+    {
+        private int _miles = 0;
+        public int Run()
+        {
+            return ++_miles;
+        }
+    }
+
+
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DependencyInjectionUsingUnity
+{
+    public class Audi : ICar
+    {
+        private int _miles = 0;
+
+        public int Run()
+        {
+            return ++_miles;
+        }
+
+    }
+}
+```
+**Creating Service Class**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DependencyInjectionUsingUnity
+{
+    public class Driver
+    {
+        private ICar _car = null;
+
+        public Driver(ICar car)
+        {
+            _car = car;
+        }
+
+        public void RunCar()
+        {
+            Console.WriteLine("Running {0} - {1} mile ", _car.GetType().Name, _car.Run());
+        }
+    }
+}
+```
+**Client Code**
+```csharp
+using Microsoft.Practices.Unity;
+using System;
+
+namespace DependencyInjectionUsingUnity
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            var container = new UnityContainer()
+                .RegisterType<ICar, BMW>();
+
+            var driver1 = container.Resolve<Driver>();
+            driver1.RunCar();
+        }
+    }
+}
+```
+**OutPut**
+
+![alt text](https://raw.githubusercontent.com/Lavanyababu1234/Upload/master/Screenshot%20(64).png)
+ 
+ 
+  
+  
+
+
+
+
 ## Adapter Design Pattern
 
 1.The Adapter Design Pattern falls under the category of Structural Design Pattern.
