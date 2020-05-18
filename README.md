@@ -8,7 +8,9 @@
 2.Types of Dependency Injection are as fallows:
 
   `Constructor Injection:` In the constructor injection, the injector supplies the service (dependency)     through the client class constructor.
+  
   `Property Injection:` In the property injection,the injector supplies the dependency through a public property of the client class.
+  
   `Method Injection:`In this type of injection, the client class implements an interface which declares the method(s) to supply the dependency and the injector uses this interface to supply the dependency to the client class.
   
  **Diagram of Dependency Pattern**
