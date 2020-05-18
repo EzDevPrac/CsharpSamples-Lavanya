@@ -1,6 +1,182 @@
 [![Build Status](https://dev.azure.com/lavanyakgf8840615/CsharpSample/_apis/build/status/EzDevPrac.CsharpSamples-Lavanya%20(1)?branchName=master)](https://dev.azure.com/lavanyakgf8840615/CsharpSample/_build/latest?definitionId=2&branchName=master)
 # Design Pattern
 
+## Adapter Design Pattern
+
+1.The Adapter Design Pattern falls under the category of Structural Design Pattern.
+
+2.The Adapter Design Pattern works as a bridge between two incompatible interfaces.
+
+3.The Adapter Pattern helps two incompatible interfaces to work together.
+
+## UML Diagram of Adapter Design Pattern
+
+![alt text](http://gyanendushekhar.com/wp-content/uploads/2016/08/Adapter-Design-Pattern-in-C-UML-Diagram-1.png)
+
+**The Adapter Design Pattern is composed of four components.**
+
+`Client:` The Client class can only see the Target interface.
+
+`Target:`It an interface and this interface needs to be implemented by the Adapter and the client can see only this interface.
+
+`Adapter:`This is a class which makes two incompatible systems to work together. The Adapter class implements the Trager interface and provides the implementation for the ServiceA method. This class is also composed of the Adaptee i.e. it has a reference to the Adaptee object.
+
+`Adaptee:` This class contains the functionality which the client requires but it’s not compatible with the existing client code. So, it requires some adaptation before the client code can use it. It means the client will call the Adapter and Adapter will do the conversion if required and then it will make a call to the Adaptee.
+
+**Example Code**
+
+**Step1: Creating Employee class**
+
+```csharp
+ using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AdapterPattern
+{
+   public class Employee
+    {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public string Designation { get; set; }
+            public decimal Salary { get; set; }
+
+            public Employee(int id, string name, string designation, decimal salary)
+            {
+                ID = id;
+                Name = name;
+                Designation = designation;
+                Salary = salary;
+            }
+   }
+}
+
+```
+**Step2: Creating Adaptee**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AdapterPattern
+{
+        public class ThirdPartyBillingSystem
+        {
+           
+            public void ProcessSalary(List<Employee> listEmployee)
+            {
+                foreach (Employee employee in listEmployee)
+                {
+                    Console.WriteLine("Rs." + employee.Salary + " Salary Credited to " + employee.Name + " Account");
+                }
+            }
+        }
+}
+```
+**Step3: Creating Target interface**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AdapterPattern
+{
+   public interface ITarget
+    {
+        void ProcessCompanySalary(string[,] employeesArray);
+    }
+}
+```
+**Step4: Creating Adapter**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AdapterPattern
+{
+        public class EmployeeAdapter : ITarget
+        {
+            ThirdPartyBillingSystem thirdPartyBillingSystem = new ThirdPartyBillingSystem();
+
+            public void ProcessCompanySalary(string[,] employeesArray)
+            {
+                string Id = null;
+                string Name = null;
+                string Designation = null;
+                string Salary = null;
+
+                List<Employee> listEmployee = new List<Employee>();
+
+                for (int i = 0; i < employeesArray.GetLength(0); i++)
+                {
+                    for (int j = 0; j < employeesArray.GetLength(1); j++)
+                    {
+                        if (j == 0)
+                        {
+                            Id = employeesArray[i, j];
+                        }
+                        else if (j == 1)
+                        {
+                            Name = employeesArray[i, j];
+                        }
+                        else if (j == 1)
+                        {
+                            Designation = employeesArray[i, j];
+                        }
+                        else
+                        {
+                            Salary = employeesArray[i, j];
+                        }
+                    }
+
+                    listEmployee.Add(new Employee(Convert.ToInt32(Id), Name, Designation, Convert.ToDecimal(Salary)));
+                }
+
+                Console.WriteLine("Adapter converted Array of Employee to List of Employee");
+                Console.WriteLine("Then delegate to the ThirdPartyBillingSystem for processing the employee salary\n");
+                thirdPartyBillingSystem.ProcessSalary(listEmployee);
+            }
+        }
+    }
+```
+**Step5: Client**
+```csharp
+using System;
+
+namespace AdapterPattern
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[,] employeesArray = new string[5, 4]
+             {
+                {"101","Lavanya","SE","10000"},
+                {"102","Tereena","SE","20000"},
+                {"103","Karan","SSE","30000"},
+                {"104","Raju","SE","40000"},
+                {"105","Shashank","SSE","50000"}
+             };
+
+            ITarget target = new EmployeeAdapter();
+            Console.WriteLine("HR system passes employee string array to Adapter\n");
+            target.ProcessCompanySalary(employeesArray);
+            Console.Read();
+        }
+    }
+}
+```
+**Output**
+
+![alt text](https://github.com/Lavanyababu1234/Upload/blob/master/Screenshot%20(62).png)
+
+
+
+
+
 ## Proxy Design Pattern
 
 1.Proxy Design Pattern act on behalf of othe object to control the access to it.
