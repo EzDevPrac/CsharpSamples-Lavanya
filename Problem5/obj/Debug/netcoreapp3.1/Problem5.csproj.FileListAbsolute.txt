@@ -1,0 +1,13 @@
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\bin\Debug\netcoreapp3.1\Problem5.exe
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\bin\Debug\netcoreapp3.1\Problem5.deps.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\bin\Debug\netcoreapp3.1\Problem5.runtimeconfig.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\bin\Debug\netcoreapp3.1\Problem5.runtimeconfig.dev.json
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\bin\Debug\netcoreapp3.1\Problem5.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\bin\Debug\netcoreapp3.1\Problem5.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.csprojAssemblyReference.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.AssemblyInfoInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.AssemblyInfo.cs
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.csproj.CoreCompileInputs.cache
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.dll
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.pdb
+C:\Users\Lavanya\Desktop\github\CsharpSamples-Lavanya-master\Problem5\obj\Debug\netcoreapp3.1\Problem5.genruntimeconfig.cache
